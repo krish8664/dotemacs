@@ -198,14 +198,14 @@
 
 ;; Enable neotreee - fancy file browser
 (use-package neotree
+  :ensure t
   :init
-  (use-package all-the-icons)
 
   :config
   (global-set-key (kbd "<f5>") 'neotree-toggle)
 
   (setq-default neo-smart-open t)
-  (setq neo-theme (if (display-graphic-p) 'icons 'nerd))
+  (setq neo-theme (if (display-graphic-p) 'ascii))
   (setq neo-show-hidden-files t)
   ;; Scale the text down a notch when in a neotree buffer
   (defun kg/text-scale-down ()
@@ -241,3 +241,11 @@
   (setq spaceline-window-numbers-unicode nil)
   (setq spaceline-org-clock-p nil)
   (setq spaceline-highlight-face-func 'spaceline-highlight-face-modified))
+
+(use-package evil
+  :ensure t)
+(evil-mode 1)
+(evil-define-key 'normal clojure-mode-map
+  "gd" 'cider-find-var)
+
+(server-start)
