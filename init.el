@@ -37,6 +37,7 @@
 ;; https://github.com/purcell/exec-path-from-shell
 (use-package exec-path-from-shell
   :ensure t
+  :pin melpa-stable
   :config
   (exec-path-from-shell-initialize))
 
@@ -49,6 +50,7 @@
 ;; Install and setup company-mode for autocompletion
 (use-package company
   :ensure t
+  :pin melpa-stable
   :init
   (add-hook 'prog-mode-hook 'company-mode)
   :config
@@ -67,7 +69,8 @@
 
 ;; Better syntax highlighting
 (use-package clojure-mode-extra-font-locking
-  :ensure t)
+  :ensure t
+  :pin melpa-stable)
 
 
 ;; Highlight matching parentheses
@@ -89,6 +92,7 @@
 ;; Paredit makes it easier to navigate/edit s-expressions as blocks.
 (use-package paredit
   :ensure t
+  :pin melpa-stable
   :init
   (add-hook 'clojure-mode-hook 'enable-paredit-mode)
   (add-hook 'cider-repl-mode-hook 'enable-paredit-mode))
@@ -97,12 +101,14 @@
 ;; To add some colors to those boring parens
 (use-package rainbow-delimiters
   :ensure t
+  :pin melpa-stable
   :init (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
 
 
 ;; Cider integrates a Clojure buffer with a REPL
 (use-package cider
   :ensure t
+  :pin melpa-stable
   :init
 
   (setq cider-repl-pop-to-buffer-on-connect t
@@ -138,6 +144,7 @@
 ;; Aggressively indents your clojure code
 (use-package aggressive-indent
   :ensure t
+  :pin melpa-stable
   :commands (aggressive-indent-mode)
   :config
   (add-hook 'clojure-mode-hook 'aggressive-indent-mode))
@@ -146,6 +153,7 @@
 ;; Operate (list, search, replace....) on files at a project level.
 (use-package projectile
   :ensure t
+  :pin melpa-stable
   :init
   (setq-default projectile-cache-file
 		(expand-file-name ".projectile-cache" user-emacs-directory))
@@ -162,6 +170,7 @@
 ;; Enable clj-refactor mode
 (use-package clj-refactor
   :ensure t
+  :pin melpa-stable
   :init
 
   :config
@@ -176,7 +185,9 @@
 
 
 ;; Magit: The only git interface you'll ever need
-(use-package magit :ensure t)
+(use-package magit 
+  :ensure t
+  :pin melpa-stable)
 
 
 ;; User customizations
@@ -199,6 +210,7 @@
 ;; Enable neotreee - fancy file browser
 (use-package neotree
   :ensure t
+  :pin melpa-stable
   :init
 
   :config
@@ -222,6 +234,7 @@
 ;; Enable spaceline - fancy modeline
 (use-package spaceline
   :ensure t
+  :pin melpa-stable
   :init
   (require 'spaceline-config)
   (let ((faces '(mode-line
@@ -243,7 +256,8 @@
   (setq spaceline-highlight-face-func 'spaceline-highlight-face-modified))
 
 (use-package evil
-  :ensure t)
+  :ensure t
+  :pin melpa-stable)
 (evil-mode 1)
 (evil-define-key 'normal clojure-mode-map
   "gd" 'cider-find-var)

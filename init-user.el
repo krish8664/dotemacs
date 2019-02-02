@@ -7,12 +7,14 @@
 ;; Theme: monokai.el
 (use-package monokai-theme
   :ensure t
+  :pin melpa-stable
   :init)
 
 
 ;; Enable smex -- for M-x autocomplete
 (use-package smex
   :ensure t
+  :pin melpa-stable
   :init)
 (global-set-key (kbd "M-x") 'smex)
 
@@ -26,6 +28,7 @@
 ;; Enable recentf
 (use-package recentf
   :ensure t
+  :pin melpa-stable
   :init)
 (recentf-mode t)
 ;; replace 'find-file-read-only'
@@ -44,9 +47,11 @@
 ;; Golang / gotest
 (use-package go-mode
   :ensure t
+  :pin melpa-stable
   :init)
 (use-package gotest
   :ensure t
+  :pin melpa-stable
   :init)
 (define-key go-mode-map (kbd "C-x t") 'go-test-current-test)
 (define-key go-mode-map (kbd "C-x f") 'go-test-current-file)
@@ -58,6 +63,7 @@
 (global-set-key (kbd "s-r") 'projectile-replace)
 (global-set-key (kbd "s-g") 'projectile-grep)
 (global-set-key (kbd "s-p") 'projectile-switch-project)
+(global-set-key (kbd "s-a") 'projectile-toggle-between-implementation-and-test)
 
 
 ;; Show full file path in the title bar
@@ -113,6 +119,7 @@
 ;; Enable org mode
 (use-package org
   :ensure t
+  :pin melpa-stable
   :init)
 
 
@@ -127,6 +134,7 @@
 ;; Enable flycheck
 (use-package flycheck
   :ensure t
+  :pin melpa-stable
   :init)
 (global-flycheck-mode t)
 
