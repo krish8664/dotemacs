@@ -3,3 +3,9 @@ custom.el
 elpa/
 network-security.data
 *.el~
+.projectile-cache
+auto-save-list/
+ido.last
+projectile-bookmarks.eld
+recentf
+smex-items

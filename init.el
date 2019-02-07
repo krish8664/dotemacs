@@ -146,9 +146,19 @@
   :ensure t
   :pin melpa-stable
   :commands (aggressive-indent-mode)
+
   :config
   (add-hook 'clojure-mode-hook 'aggressive-indent-mode))
 
+(use-package ivy
+  :ensure t
+  :pin melpa-stable
+
+  :config
+  (setq ivy-use-virtual-buffers t)
+  (setq enable-recursive-minibuffers t))
+
+(ivy-mode 1)
 
 ;; Operate (list, search, replace....) on files at a project level.
 (use-package projectile
@@ -162,6 +172,7 @@
 
   :config
   (projectile-mode)
+  (setq projectile-completion-system 'ivy)
   (setq-default projectile-enable-caching t
                 ;; Show project (if any) name in modeline
                 projectile-mode-line '(:eval (projectile-project-name))))
@@ -248,6 +259,7 @@
   ;; solves the issue with incorrect seperator colors in modeline
   ;; powerline now takes sRGB colorspace for rendering
   (setq powerline-image-apple-rgb t)
+
   :config
   (spaceline-spacemacs-theme)
   (setq spaceline-workspace-numbers-unicode nil)
