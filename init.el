@@ -50,7 +50,7 @@
 ;; Install and setup company-mode for autocompletion
 (use-package company
   :ensure t
-  :pin melpa-stable
+ ;; :pin melpa-stable
   :init
   (add-hook 'prog-mode-hook 'company-mode)
   :config
@@ -108,7 +108,7 @@
 ;; Cider integrates a Clojure buffer with a REPL
 (use-package cider
   :ensure t
-  :pin melpa-stable
+;;  :pin melpa-stable
   :init
 
   (setq cider-repl-pop-to-buffer-on-connect t
@@ -139,6 +139,24 @@
   (add-hook 'cider-mode-hook #'company-mode)
   (add-hook 'cider-mode-hook
             (local-set-key (kbd "<C-return>") 'cider-eval-defun-at-point)))
+
+;; Enable clj-refactor mode
+(use-package clj-refactor
+  :ensure t
+;;  :pin melpa-stable
+  :init
+
+  :config
+  (add-hook 'clojure-mode-hook (lambda ()
+				 (clj-refactor-mode 1)
+				 (yas-minor-mode 1)
+				 (cljr-add-keybindings-with-prefix "C-c C-x")))
+  (setq cljr-favor-prefix-notation nil)
+  (setq cljr-warn-on-eval nil)
+  (setq cljr-find-usages-ignore-analyzer-errors t)
+  (setq cljr-ignore-analyzer-errors t))
+
+
 
 
 ;; Aggressively indents your clojure code
@@ -176,23 +194,6 @@
   (setq-default projectile-enable-caching t
                 ;; Show project (if any) name in modeline
                 projectile-mode-line '(:eval (projectile-project-name))))
-
-
-;; Enable clj-refactor mode
-(use-package clj-refactor
-  :ensure t
-  :pin melpa-stable
-  :init
-
-  :config
-  (add-hook 'clojure-mode-hook (lambda ()
-				 (clj-refactor-mode 1)
-				 (yas-minor-mode 1)
-				 (cljr-add-keybindings-with-prefix "C-c C-x")))
-  (setq cljr-favor-prefix-notation nil)
-  (setq cljr-warn-on-eval nil)
-  (setq cljr-find-usages-ignore-analyzer-errors t)
-  (setq cljr-ignore-analyzer-errors t))
 
 
 ;; Magit: The only git interface you'll ever need
