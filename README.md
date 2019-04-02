@@ -18,7 +18,7 @@ You can find a binary at http://ftp.gnu.org/gnu/emacs/windows/. After you downlo
 
 ### Setup Configuration
 ```
-git clone https://gitlab.com/nilenso/dotemacs ~/.emacs.d
+git clone https://github.com/ukriish/dotemacs ~/.emacs.d
 ```
 
 Open emacs and you're good to go. Happy Hacking!
@@ -42,6 +42,7 @@ Open emacs and you're good to go. Happy Hacking!
 - monokai => *Dark and fruity color theme*
 - spaceline => *Better Modeline* - the popular spacemacs powerline in regular emacs (theme)
 - neotree => *Side-pane file browser* - NerdTree (ViM) like file browser with icons
+- evil-mode => vim in emacs
 
 ## Recommended side-installs
 
